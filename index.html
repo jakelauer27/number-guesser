@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+        <title>Number Guesser</title>
+    </head>
+    <body>
+        <header>
+            <h1><span class="number">Number </span>Guesser</h1>
+        </header>
+        <div class="game">
+            <form>
+                <fieldset>
+                  <legend>range</legend>
+                  <input class="range" id="min" type="text" value="0">
+                  <div class="to">to</div>
+                  <input class="range" id="max" type="text" value="100">
+                </fieldset>
+                <br>
+                <input id="userGuess" type="text" placeholder="Enter your guess">
+                <br>
+                <button id="guessButton">Guess</button>
+                <button id="clearButton">Clear</button>
+                <br>
+                <div class="results">
+                  <div id="setup">Set the Range!</div>
+                  <div id="guessDisplay">#</div>
+                  <div id="result">Guess the Number!</div>
+                </div>
+                <input type="reset">
+            </form>
+        </div>
+    </body>
+    <script src="scripts.js" type="text/javascript" rel="script"></script>
+</html>
