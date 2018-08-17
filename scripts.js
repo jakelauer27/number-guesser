@@ -12,10 +12,15 @@ var max = document.getElementById("max");
 var setup = document.getElementById("setup");
 var guessDisplay = document.getElementById("guessDisplay");
 var result = document.getElementById("result");
+var wins = document.querySelector(".wins");
+var quickest = document.querySelector(".quickest");
+var guesses = document.querySelector(".guesses");
 
 /////Var for Computer's Guess
 
 var compGuessNum = 0; 
+
+var count = 0;
 
 //////Button and input event listeners
 
@@ -47,6 +52,8 @@ resetButton.addEventListener("click", function() {
     max.value = 100;
     min.disabled = false;
     max.disabled = false;
+    wins.innerHTML = 0;
+    quickest.innerHTML = "--"
     disableClear();
     disableReset();
     compGuess();
@@ -64,6 +71,18 @@ max.addEventListener("input", function() {
 
 function compGuess(){
     compGuessNum = Math.floor(Math.random() * (parseInt(max.value) - parseInt(min.value)) + 1);
+}
+
+//////Function for checking quickest win
+
+function quickestCheck(){
+    var current = parseInt(quickest.innerHTML);
+    if (quickest.innerHTML === "--") {
+        quickest.innerHTML = count;
+    }else if (count < current){
+        quickest.innerHTML = count;
+        setup.innerHTML = "NEW RECORD";
+    }
 }
 
 //////Functions for checking whether or not "reset" and "clear" buttons should be disabled
@@ -115,30 +134,35 @@ guessButton.disabled = true;
 
 function checkGuess() {
     var guess = parseInt(userGuess.value);
-    console.log(guess);
-    console.log(compGuessNum);
+    count ++;
+    guesses.innerHTML = count;
+    console.log("Your Guess " + guess);
+    console.log("Computer Guess " + compGuessNum);
 
     if (rangeCheck() === true) {
-        result.innerHTML = "You May Only Enter Numbers in the Min and Max fields";
+        result.innerHTML = "You May Only Enter Numbers in the Min and Max fields...idiot.";
 
     } else if (numCheck() === true) {
-        result.innerHTML = "You Must Choose A Number Between " + min.value + " and " + max.value;                                       
+        result.innerHTML = "You Must Choose A Number Between " + min.value + " and " + max.value + "idiot.";                                       
       
     } else if (guess === compGuessNum) {
-        result.innerHTML = "Level Up!";
-        setup.innerHTML = "BOOM! CORRECT!";
-        guessDisplay.innerHTML = guess;
+        result.innerHTML = "Don't get Cocky. Level up...";
+        setup.innerHTML = "BOOM!";
+        guessDisplay.innerHTML = `*${guess}*`;
         min.value -= 10;
         max.value -= -10;
+        wins.innerHTML ++;
+        quickestCheck();
+        count = 0;
         compGuess();
 
     } else if (guess < compGuessNum) {
-        result.innerHTML = "That is too low";
+        result.innerHTML = "Too low, try harder";
         setup.innerHTML = "Your Last Guess Was";
         guessDisplay.innerHTML = guess;
 
     } else {
-        result.innerHTML = "That is too high";
+        result.innerHTML = "Too high, try harder";
         setup.innerHTML = "Your Last Guess Was";
         guessDisplay.innerHTML = guess;
     }

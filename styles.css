@@ -3,6 +3,7 @@
 
 *{
   font-family: 'Open Sans', sans-serif;
+  color: white;
 }
 
 *:focus {
@@ -12,18 +13,23 @@
 body {
   margin: 0;
   text-align: center;
+  background: linear-gradient(black, purple);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
 }
 
 header {
   text-align: center;
-  background: #404041;
+  background: rgb(59, 50, 59);
   color: #E6E7E8;
   padding-top: 5px;
   padding-bottom: 7px;
 }
 
+.extreme,
 .number {
-  color: #ED458B;
+  color: rgb(0, 255, 0);
   font-weight: 700;
 }
 
@@ -32,45 +38,46 @@ h1 {
   font-weight: 300;
 }
 
+h2 {
+  margin: 0 auto 10px auto;
+  color: white;
+  font-weight: 300;
+  background: rgb(122, 115, 115);
+  border: 3px solid rgb(0, 255, 0);
+  padding: 3px;
+}
+
 /*Form Styling*/
 
-form {
-  width: 50%;
-  margin: 0 auto;
+.game{
+  height: 400px;
 }
 
-fieldset {
-  width: 89.5%;
-  padding: 7px 5px;
-  margin: 15px auto 0 auto;
-  border: 1px solid #D0D2D3;
-}
-
-legend {
-  color: #D0D2D3;
-  font-weight: 300;
-}
-
-.range {
-  width: 41%;
-  text-align: center;
-  font-weight: 300;
-}
-
-.to {
+.level {
   display: inline-block;
-  color: #D0D2D3;
-  font-weight: 300;
+  width: 18%;
 }
 
-@media screen and (max-width: 440px) {
-  
-  .to {
-    display: block;
-  }
-  
-
+.stats {
+  display: inline-block;
+  width: 18%;
 }
+
+.action {
+  display: inline-block;
+  width: 52%;
+}
+
+form {
+  margin: 10px auto;
+  border: 3px solid black;
+  height: 100%;
+  vertical-align: top;
+  padding: 8px;
+  background-color: rgb(59, 50, 59);
+}
+
+/*ACTION FORM*/
 
 .results {
   margin-top: 30px;
@@ -78,7 +85,7 @@ legend {
 }
 
 #guessDisplay{
-  color: #EB008B;
+  color: rgb(0, 255, 0);
   font-size: 60px;
 }
 
@@ -93,21 +100,20 @@ legend {
 
 ::placeholder{
    color:#D0D2D3;
+   text-align: center;
    opacity: 1;
    font-weight: 300;
 }
 
 button, 
 input[type=reset]{
-  color: #FFFFFF;
-  background: #929497;
-  border: 0;
-  border-radius: 15px;
-  font-weight: 300;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  color: rgb(0, 255, 0);
+  background: black;
+  border: 2px solid rgb(0, 255, 0);
+  font-weight: 700;
+  padding-top: 5px;
+  padding-bottom: 5px;
   margin-top: 45px;
-  font-weight: 300;
 }
 
 button{
@@ -124,16 +130,51 @@ input[type=reset]{
 
 button:disabled,
 input[type=reset]:disabled{
-  background: #D0D2D3;
+  background: rgb(66, 66, 66);
+  border-color: rgb(178, 245, 178);
+  color:rgb(178, 245, 178);
 }
 
 button:hover,
 input[type=reset]:hover{
-  background:#EB008B;
+  background: rgb(112, 24, 119) ;
+  color: white;
 }
 
 button:disabled:hover,
 input[type=reset]:disabled:hover{
-  background: #D0D2D3;
+  background: rgb(66, 66, 66);
+  border-color: rgb(178, 245, 178);
+  color:rgb(178, 245, 178);
 }
 
+/*STATS FORM*/
+
+/*LEVEL FORM*/
+
+
+fieldset {
+  width: 89.5%;
+  padding: 7px 5px;
+  margin: 0 auto;
+  border: 1px solid #D0D2D3;
+}
+
+.range {
+  width: 41%;
+  text-align: center;
+  font-weight: 300;
+  border
+}
+
+.to {
+  display: block;
+  color: #D0D2D3;
+  font-weight: 300;
+}
+
+/*FOOTER*/
+
+footer {
+  margin: 50px auto;
+}
