@@ -54,16 +54,18 @@ resetButton.addEventListener("click", function() {
 
 min.addEventListener("input", function() {
   compGuess();
+  console.log(compGuessNum)
 })
 
 max.addEventListener("input", function() {
   compGuess();
+  console.log(compGuessNum);
 })
 
 //////Function for resetting computer guess
 
 function compGuess(){
-    compGuessNum = Math.floor(Math.random() * (parseInt(max.value) - parseInt(min.value)) + 1);
+    compGuessNum = Math.floor(Math.random() * (Number(max.value) - Number(min.value)) + Number(min.value));
 }
 
 //////Functions for checking whether or not "reset" and "clear" buttons should be disabled
@@ -87,15 +89,15 @@ function disableClear(){
 //////Functions for validating user inputs are numbers in correct ranges
 
 function numCheck(){
-  var guess = parseInt(userGuess.value);
-  if (isNaN(guess) === true || guess <  parseInt(min.value) || guess > parseInt(max.value)) {
+  var guess = Number(userGuess.value);
+  if (isNaN(guess) === true || guess <  Number(min.value) || guess > Number(max.value)) {
     return true;
   }
 }
 
 function rangeCheck(){
-  var minCheck = parseInt(min.value);
-  var maxCheck = parseInt(max.value);
+  var minCheck = Number(min.value);
+  var maxCheck = Number(max.value);
   if (isNaN(minCheck) === true || isNaN(maxCheck) === true) {
     return true;
   }
@@ -114,7 +116,7 @@ guessButton.disabled = true;
 ///////Comparing user guess to computer Guess
 
 function checkGuess() {
-    var guess = parseInt(userGuess.value);
+    var guess = Number(userGuess.value);
     console.log(guess);
     console.log(compGuessNum);
 
