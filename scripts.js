@@ -13,7 +13,7 @@ var diffHard = document.querySelector(".hard");
 var diffXtreme = document.querySelector(".xtreme");
 var diffCustom = document.querySelector(".custom");
 
-//////Results Text Variables WOO!
+//////Results Text Variables
 
 var setup = document.getElementById("setup");
 var guessDisplay = document.getElementById("guessDisplay");
@@ -126,7 +126,7 @@ function changeDiff() {
 //////Function for resetting computer guess
 
 function compGuess(){
-    compGuessNum = Math.floor(Math.random() * (Number(max.value) - Number(min.value)) + 1);
+    compGuessNum = Math.floor(Math.random() * (Number(max.value) - Number(min.value)) + Number(min.value));
 }
 
 //////Function for checking quickest win
