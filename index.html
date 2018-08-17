@@ -14,7 +14,7 @@
                 <h2>Stats</h2>
                 <div class="scores">
                     <h3>GUESSES</h3>
-                    <div class="guesses">--</div>
+                    <div class="guesses">0</div>
                     <h3>WINS</h3>
                     <div class="wins">0</div>
                     <h3>HIGH SCORE</h3>
@@ -23,7 +23,7 @@
             </form>
             <form class="action">
                 <h2>Play</h2>
-                <input id="userGuess" type="text" placeholder="Enter your guess">
+                <input id="userGuess" type="text" placeholder="Give it a go">
                 <br>
                 <button id="guessButton">Guess</button>
                 <button id="clearButton">Clear</button>
@@ -38,38 +38,41 @@
             <form class="level">
                 <h2>Difficulty</h2>
                 <fieldset>
+                        <legend>Range</legend>
                         <input class="range" id="min" type="text" value="0">
                         <div class="to">to</div>
                         <input class="range" id="max" type="text" value="100">
                 </fieldset>
-               <label>Easy
-                    <input class="easy" type="radio" name="diff">
-                    <br>
-                </label>
-                <label>Med
-                    <input class="med" type="radio" name="diff" checked>
-                    <br>
-                </label>
-                 <label>Hard
-                    <input class="hard" type="radio" name="diff">
-                    <br>
-                </label>
-                <label>Xtreme
-                    <input class="xtreme" type="radio" name="diff">
-                    <br>
-                </label>
-                <label>Custom
-                    <input class="custom" type="radio" name="diff">
-                    <br>
-                </label>
+                <div class="radioButtons">
+                    <label>
+                        <input class="easy" type="radio" name="diff"> Easy
+                        <br>
+                    </label>
+                    <label>
+                        <input class="med" type="radio" name="diff" checked> Med
+                        <br>
+                    </label>
+                    <label>
+                        <input class="hard" type="radio" name="diff"> Hard
+                        <br>
+                    </label>
+                    <label>
+                        <input class="xtreme" type="radio" name="diff"> Xtreme
+                        <br>
+                    </label>
+                    <label>
+                        <input class="custom" type="radio" name="diff"> Custom
+                        <br>
+                    </label>
+                </div>
             </form>
         </div>
         <footer>
             <p>"The Russian Roullette of WebGames</p>
             <p><i>-NY Times</i></p>
             <p>"Reminds me of Skydiving"</p>
-            <p><i>-Bear Grills</i></p>
-            <p>"Just don't try Xteme. Please God don't try Xtreme"</p>
+            <p><i>-Bear Grylls</i></p>
+            <p>"Just don't try Xtreme. Please God don't try Xtreme"</p>
             <p><i>-Stephen Colbert</i></p>
         </footer>
     </body>
