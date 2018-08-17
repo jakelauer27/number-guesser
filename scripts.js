@@ -13,7 +13,7 @@ var diffHard = document.querySelector(".hard");
 var diffXtreme = document.querySelector(".xtreme");
 var diffCustom = document.querySelector(".custom");
 
-//////Results Text Variables
+//////Results Text Variables WOO!
 
 var setup = document.getElementById("setup");
 var guessDisplay = document.getElementById("guessDisplay");
