@@ -3,7 +3,6 @@
 
 *{
   font-family: 'Open Sans', sans-serif;
-  color: white;
 }
 
 *:focus {
@@ -13,38 +12,19 @@
 body {
   margin: 0;
   text-align: center;
-  background: linear-gradient(black, purple);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 100%;
 }
 
 header {
   text-align: center;
-  background: linear-gradient(grey, black);
+  background: #404041;
   color: #E6E7E8;
   padding-top: 5px;
   padding-bottom: 7px;
 }
 
-.extreme,
 .number {
-  color: rgb(178, 245, 178);;
+  color: #ED458B;
   font-weight: 700;
-}
-
-.extreme {
-  animation-name: flash;
-   animation-duration: 0.1s;
-   animation-timing-function: linear;
-   animation-iteration-count: 70;
-   animation-direction: alternate;
-   animation-play-state: running;
-}
-
-@keyframes flash {
-   from {color: purple;}
-   to {color: rgb(178, 245, 178)}
 }
 
 h1 {
@@ -52,47 +32,45 @@ h1 {
   font-weight: 300;
 }
 
-h2 {
-  margin: 0 auto 10px auto;
-  color: white;
-  font-weight: 300;
-  background: linear-gradient(grey, black);
-  border: 3px solid rgb(110, 24, 116);
-  border-radius: 8px;
-  padding: 3px;
-}
-
 /*Form Styling*/
 
-.game{
-  height: 380px;
-}
-
-.level {
-  display: inline-block;
-  width: 18%;
-}
-
-.stats {
-  display: inline-block;
-  width: 18%;
-}
-
-.action {
-  display: inline-block;
-  width: 52%;
-}
-
 form {
-  margin: 10px auto;
-  border: 3px solid black;
-  height: 100%;
-  vertical-align: top;
-  padding: 8px;
-  background-color: rgb(59, 50, 59);
+  width: 50%;
+  margin: 0 auto;
 }
 
-/*ACTION FORM*/
+fieldset {
+  width: 89.5%;
+  padding: 7px 5px;
+  margin: 15px auto 0 auto;
+  border: 1px solid #D0D2D3;
+}
+
+legend {
+  color: #D0D2D3;
+  font-weight: 300;
+}
+
+.range {
+  width: 41%;
+  text-align: center;
+  font-weight: 300;
+}
+
+.to {
+  display: inline-block;
+  color: #D0D2D3;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 440px) {
+  
+  .to {
+    display: block;
+  }
+  
+
+}
 
 .results {
   margin-top: 30px;
@@ -100,7 +78,7 @@ form {
 }
 
 #guessDisplay{
-  color: rgb(178, 245, 178);;
+  color: #EB008B;
   font-size: 60px;
 }
 
@@ -108,148 +86,54 @@ form {
 
 #userGuess{
   display: block;
-  text-align: center;
-  font-weight: 700;
-  color: rgb(59, 50, 59);
   width: 90%;
   margin: 0 auto;
   padding: 3px 3px;
-  border: 2px solid rgb(178, 245, 178);
-  background: rgb(230, 230, 230);
-  border-radius: 10px;
 }
 
 ::placeholder{
-   color:rgb(141, 150, 155);
-   text-align: center;
+   color:#D0D2D3;
    opacity: 1;
    font-weight: 300;
 }
 
 button, 
 input[type=reset]{
-  color: rgb(178, 245, 178);
-  background: linear-gradient(grey, black);
-  border: 2px solid rgb(178, 245, 178);
-  border-radius: 10px;
-  font-weight: 700;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  color: #FFFFFF;
+  background: #929497;
+  border: 0;
+  border-radius: 15px;
+  font-weight: 300;
+  padding-top: 3px;
+  padding-bottom: 3px;
   margin-top: 45px;
+  font-weight: 300;
 }
 
-button { 
+button{
   width: 43.5%;
   margin-top: 1px;
   margin-right: 2%;
   margin-left: 2%;
 }
 
-input[type=reset] {
+input[type=reset]{
   width: 94%;
   margin: 35px auto;
 }
 
 button:disabled,
-input[type=reset]:disabled {
-  opacity: .3;
+input[type=reset]:disabled{
+  background: #D0D2D3;
 }
 
 button:hover,
-input[type=reset]:hover {
-  background: linear-gradient(black, purple);
-  color: white;
+input[type=reset]:hover{
+  background:#EB008B;
 }
 
 button:disabled:hover,
-input[type=reset]:disabled:hover {
-  opacity: .3;
+input[type=reset]:disabled:hover{
+  background: #D0D2D3;
 }
 
-/*STATS FORM*/
-
-.stats * {
-  margin-bottom: 26px;
-}
-
-/*LEVEL FORM*/
-
-
-fieldset {
-  width: 89.5%;
-  padding: 7px 5px;
-  margin: 0 auto;
-  border: 1px solid white;
-  border-radius: 12px;
-}
-
-.range {
-  width: 41%;
-  text-align: center;
-  font-weight: 300;
-  font-weight: 700;
-  color: rgb(59, 50, 59); 
-  padding: 3px 3px;
-  border: 2px solid rgb(178, 245, 178);
-  background: rgb(230, 230, 230);
-  border-radius: 10px;
-}
-
-.range:disabled { 
-  opacity: 0.5;
-}
-
-.to {
-  display: block;
-  color: #D0D2D3;
-  font-weight: 300;
-}
-
-.radioButtons {
-  text-align: left;
-  margin: 11px auto;
-  padding-left: 32%;
-}
-
-input[type="radio"] {
-  margin: 14px auto;
-}
-
-/*FOOTER*/
-
-footer {
-  margin: 50px auto;
-}
-
-@media screen and (max-width: 670px) {
-  .game {
-  max-width: 100%;
-  display: grid;
-  height: auto;
-	column-gap: 2em;
-	margin-right: auto;
-	margin-left: auto;
-	justify-content: center;
-	grid-template-columns: auto auto;
-	grid-template-rows: auto auto;
-  }
-
-  .action {
-    display: block;
-    grid-row: 1/2;
-    grid-column: 1/3;
-  }
-
-  .stats {
-    display: block;
-    grid-row: 2/3;
-    grid-column: 1/2;
-  }
-
-  .level {
-    display: block;
-    grid-row: 2/3;
-    grid-column: 2/3
-  }
-
-}
