@@ -164,6 +164,9 @@ input[type=reset]:hover {
 button:disabled:hover,
 input[type=reset]:disabled:hover {
   opacity: .3;
+  background: linear-gradient(grey, black);
+  border: 2px solid rgb(178, 245, 178);
+  color: rgb(178, 245, 178);
 }
 
 /*STATS FORM*/
@@ -224,11 +227,12 @@ footer {
 @media screen and (max-width: 670px) {
   .game {
   max-width: 100%;
+  width: 92%;
   display: grid;
+  margin: 20px 4% 0 2%;
   height: auto;
-	column-gap: 2em;
-	margin-right: auto;
-	margin-left: auto;
+  column-gap: 2em;
+  row-gap: 30px;
 	justify-content: center;
 	grid-template-columns: auto auto;
 	grid-template-rows: auto auto;
@@ -236,18 +240,21 @@ footer {
 
   .action {
     display: block;
+    width: 100%;
     grid-row: 1/2;
     grid-column: 1/3;
   }
 
   .stats {
     display: block;
+    width: 100%;
     grid-row: 2/3;
     grid-column: 1/2;
   }
 
   .level {
     display: block;
+    width: 100%;
     grid-row: 2/3;
     grid-column: 2/3
   }

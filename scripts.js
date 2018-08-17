@@ -118,6 +118,7 @@ function changeDiff() {
     setup.innerHTML = "Good Luck";
     guessDisplay.innerHTML = "#";
     count = "0";
+    guesses.innerHTML = count;
     disableClear();
     disableReset();
     compGuess();
@@ -171,7 +172,7 @@ function numCheck(){
 function rangeCheck(){
   var minCheck = Number(min.value);
   var maxCheck = Number(max.value);
-  if (isNaN(minCheck) === true || isNaN(maxCheck) === true) {
+  if (isNaN(minCheck) === true || isNaN(maxCheck) === true || minCheck > maxCheck) {
     return true;
   }
 }
@@ -198,7 +199,7 @@ function checkGuess() {
     console.log("Computer Guess " + compGuessNum);
 
     if (rangeCheck() === true) {
-        result.innerHTML = "You May Only Enter Numbers in the Min and Max fields...idiot.";
+        result.innerHTML = "You put something stupid in Min/Max fields...fix it.";
 
     } else if (numCheck() === true) {
         result.innerHTML = "You Must Choose A Number Between " + min.value + "-" + max.value + " idiot.";                                       
@@ -207,8 +208,8 @@ function checkGuess() {
         result.innerHTML = "Don't get Cocky. Level up...";
         setup.innerHTML = "BOOM!";
         guessDisplay.innerHTML = `*${guess}*`;
-        min.value *= 2;
-        max.value *= 2;
+        min.value -= (min.value + max.value);
+        max.value -= -max.value;
         wins.innerHTML ++;
         quickestCheck();
         count = 0;
