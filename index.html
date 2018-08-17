@@ -3,34 +3,78 @@
     <head>
         <link rel="stylesheet" type="text/css" href="styles.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
-        <title>Number Guesser</title>
+        <title>Number Guesser Xtreme</title>
     </head>
     <body>
         <header>
-            <h1><span class="number">Number </span>Guesser</h1>
+            <h1><span class="number">Number </span>Guesser <span class="extreme">XTREME</span></span></h1>
         </header>
         <div class="game">
-            <form>
-                <fieldset>
-                  <legend>range</legend>
-                  <input class="range" id="min" type="text" value="0">
-                  <div class="to">to</div>
-                  <input class="range" id="max" type="text" value="100">
-                </fieldset>
-                <br>
-                <input id="userGuess" type="text" placeholder="Enter your guess">
+            <form class="stats">
+                <h2>Stats</h2>
+                <div class="scores">
+                    <h3>GUESSES</h3>
+                    <div class="guesses">0</div>
+                    <h3>WINS</h3>
+                    <div class="wins">0</div>
+                    <h3>HIGH SCORE</h3>
+                    <div class="quickest">--</div>
+                </div>
+            </form>
+            <form class="action">
+                <h2>Play</h2>
+                <input id="userGuess" type="text" placeholder="Give it a go">
                 <br>
                 <button id="guessButton">Guess</button>
                 <button id="clearButton">Clear</button>
                 <br>
                 <div class="results">
-                  <div id="setup">Set the Range!</div>
+                  <div id="setup">Test Your Fate</div>
                   <div id="guessDisplay">#</div>
-                  <div id="result">Guess the Number!</div>
+                  <div id="result">Guess The Number</div>
                 </div>
                 <input type="reset">
             </form>
+            <form class="level">
+                <h2>Difficulty</h2>
+                <fieldset>
+                        <legend>Range</legend>
+                        <input class="range" id="min" type="text" value="0">
+                        <div class="to">to</div>
+                        <input class="range" id="max" type="text" value="100">
+                </fieldset>
+                <div class="radioButtons">
+                    <label>
+                        <input class="easy" type="radio" name="diff"> Easy
+                        <br>
+                    </label>
+                    <label>
+                        <input class="med" type="radio" name="diff" checked> Med
+                        <br>
+                    </label>
+                    <label>
+                        <input class="hard" type="radio" name="diff"> Hard
+                        <br>
+                    </label>
+                    <label>
+                        <input class="xtreme" type="radio" name="diff"> Xtreme
+                        <br>
+                    </label>
+                    <label>
+                        <input class="custom" type="radio" name="diff"> Custom
+                        <br>
+                    </label>
+                </div>
+            </form>
         </div>
+        <footer>
+            <p>"The Russian Roullette of WebGames</p>
+            <p><i>-NY Times</i></p>
+            <p>"Reminds me of Skydiving"</p>
+            <p><i>-Bear Grylls</i></p>
+            <p>"Just don't try Xtreme. Please God don't try Xtreme"</p>
+            <p><i>-Stephen Colbert</i></p>
+        </footer>
     </body>
     <script src="scripts.js" type="text/javascript" rel="script"></script>
 </html>
