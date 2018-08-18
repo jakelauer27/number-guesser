@@ -23,7 +23,7 @@ var historyGuess = ["","","","",""];
 var historyResult = ["","","","",""];
 
 
-/////Var for Your/Computer's Guess
+/////Var for Your/Computer's Guess and Guess Count
 
 var guess = ""; 
 
@@ -66,6 +66,8 @@ resetButton.addEventListener("click", function() {
     disableClear();
     disableReset();
     compGuess();
+    resetGuesses();
+    displayGuesses();
     if (currentDifficulty = 4) {
         min.disabled = false;
         max.disabled = false;
@@ -89,6 +91,8 @@ difficulty[0].addEventListener("click", function() {
     min.disabled = true;
     max.disabled = true;
     compGuess();
+    resetGuesses();
+    displayGuesses();
     currentDifficulty = 0;
 })
 
@@ -99,6 +103,8 @@ difficulty[1].addEventListener("click", function() {
     min.disabled = true;
     max.disabled = true;
     compGuess();
+    resetGuesses();
+    displayGuesses();
     currentDifficulty = 1;
 })
 
@@ -109,6 +115,8 @@ difficulty[2].addEventListener("click", function() {
     min.disabled = true;
     max.disabled = true;
     compGuess();
+    resetGuesses();
+    displayGuesses();
     currentDifficulty = 2;
 })
 
@@ -119,6 +127,8 @@ difficulty[3].addEventListener("click", function() {
     min.disabled = true;
     max.disabled = true;
     compGuess();
+    resetGuesses();
+    displayGuesses();
     currentDifficulty = 3;
 })
 
@@ -127,6 +137,8 @@ difficulty[4].addEventListener("click", function() {
     min.disabled = false;
     max.disabled = false;
     compGuess();
+    resetGuesses();
+    displayGuesses();
     currentDifficulty = 4;
 })
 
@@ -259,12 +271,14 @@ function checkGuess() {
     console.log("Computer Guess " + compGuessNum);
 
     if (rangeCheck() === true) {
+        setup.innerHTML = "C'mon Man!"
         result.innerHTML = "You put something stupid in Min/Max fields...fix it.";
         count --;
         guesses.innerHTML = count;
 
     } else if (numCheck() === true) {
-        result.innerHTML = "You Must Choose A Number Between " + min.value + " - " + max.value + " idiot.";                                       
+        setup.innerHTML = "Can you even read?"
+        result.innerHTML = "You Must Choose A NUMBER Between " + min.value + " - " + max.value + " idiot.";                                       
         count --;
         guesses.innerHTML = count;
 
@@ -292,8 +306,6 @@ function checkGuess() {
         guessDisplay.innerHTML = guess;
         historyUpdate(count, "Too Low");
         displayGuesses();
-        console.log(historyGuess);
-        console.log(guess);
 
     } else {
         result.innerHTML = "Too high, try harder";
@@ -301,8 +313,6 @@ function checkGuess() {
         guessDisplay.innerHTML = guess;
         historyUpdate(count, "Too High")
         displayGuesses();
-        console.log(historyGuess);
-        console.log(guess);
     }
 
     disableClear();
