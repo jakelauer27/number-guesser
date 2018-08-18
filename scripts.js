@@ -7,11 +7,8 @@ var resetButton = document.querySelector("input[type=reset]");
 var min = document.getElementById("min");
 var max = document.getElementById("max");
 
-var diffEasy = document.querySelector(".easy");
-var diffMed = document.querySelector(".med");
-var diffHard = document.querySelector(".hard");
-var diffXtreme = document.querySelector(".xtreme");
-var diffCustom = document.querySelector(".custom");
+var difficulty = [document.querySelector(".easy"), document.querySelector(".med"), document.querySelector(".hard"), document.querySelector(".xtreme"), document.querySelector(".custom")];
+var currentDifficulty = 1;
 
 //////Results Text Variables
 
@@ -63,6 +60,10 @@ resetButton.addEventListener("click", function() {
     disableClear();
     disableReset();
     compGuess();
+    if (currentDifficulty = 4) {
+        min.disabled = false;
+        max.disabled = false;
+    }
 })
 
 min.addEventListener("input", function() {
@@ -75,39 +76,52 @@ max.addEventListener("input", function() {
 
 //////DIFFICULTY EVENT LISTENERS
 
-diffEasy.addEventListener("click", function() {
+difficulty[0].addEventListener("click", function() {
     changeDiff();
     min.value = 0;
     max.value = 25;
+    min.disabled = true;
+    max.disabled = true;
     compGuess();
+    currentDifficulty = 0;
 })
 
-diffMed.addEventListener("click", function() {
+difficulty[1].addEventListener("click", function() {
     changeDiff();
     min.value = 0;
     max.value = 100;
+    min.disabled = true;
+    max.disabled = true;
     compGuess();
+    currentDifficulty = 1;
 })
 
-diffHard.addEventListener("click", function() {
+difficulty[2].addEventListener("click", function() {
     changeDiff();
     min.value = 0;
     max.value = 500;
+    min.disabled = true;
+    max.disabled = true;
     compGuess();
+    currentDifficulty = 2;
 })
 
-diffXtreme.addEventListener("click", function() {
+difficulty[3].addEventListener("click", function() {
     changeDiff();
     min.value = 0;
     max.value = 10000;
+    min.disabled = true;
+    max.disabled = true;
     compGuess();
+    currentDifficulty = 3;
 })
 
-diffCustom.addEventListener("click", function() {
+difficulty[4].addEventListener("click", function() {
     changeDiff();
     min.disabled = false;
     max.disabled = false;
     compGuess();
+    currentDifficulty = 4;
 })
 
 ///////Function for Resetting Difficulty
@@ -202,18 +216,23 @@ function checkGuess() {
         result.innerHTML = "You put something stupid in Min/Max fields...fix it.";
 
     } else if (numCheck() === true) {
-        result.innerHTML = "You Must Choose A Number Between " + min.value + "-" + max.value + " idiot.";                                       
+        result.innerHTML = "You Must Choose A Number Between " + min.value + " - " + max.value + " idiot.";                                       
       
     } else if (guess === compGuessNum) {
-        result.innerHTML = "Don't get Cocky. Level up...";
+        currentDifficulty ++;
+        result.innerHTML = "Hey Hot Shot. Try Custom.";
         setup.innerHTML = "BOOM!";
         guessDisplay.innerHTML = `*${guess}*`;
-        min.value -= (min.value + max.value);
-        max.value -= -max.value;
         wins.innerHTML ++;
         quickestCheck();
         count = 0;
         compGuess();
+        if (currentDifficulty < 4) {
+            difficulty[currentDifficulty].click();
+            result.innerHTML = "Don't get Cocky. Level up...";
+            guessDisplay.innerHTML = `*${guess}*`;
+            setup.innerHTML = "BOOM!";
+        }
 
     } else if (guess < compGuessNum) {
         result.innerHTML = "Too low, try harder";
