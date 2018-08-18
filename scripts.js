@@ -19,6 +19,10 @@ var wins = document.querySelector(".wins");
 var quickest = document.querySelector(".quickest");
 var guesses = document.querySelector(".guesses");
 
+var historyGuess = ["","","","",""];
+var historyResult = ["","","","",""];
+
+
 /////Var for Computer's Guess
 
 var compGuessNum = 0; 
@@ -124,6 +128,31 @@ difficulty[4].addEventListener("click", function() {
     currentDifficulty = 4;
 })
 
+///////Function for Setting Guesses
+
+function displayGuesses() {
+    document.querySelector(".histOne").innerHTML = historyGuess[0];
+    document.querySelector(".histTwo").innerHTML = historyGuess[1];
+    document.querySelector(".histThree").innerHTML = historyGuess[2];
+    document.querySelector(".histFour").innerHTML = historyGuess[3];
+    document.querySelector(".histFive").innerHTML = historyGuess[4];
+
+    document.querySelector(".resultOne").innerHTML = historyResult[0];
+    document.querySelector(".resultTwo").innerHTML = historyResult[1];
+    document.querySelector(".resultThree").innerHTML = historyResult[2];
+    document.querySelector(".resultFour").innerHTML = historyResult[3];
+    document.querySelector(".resultFive").innerHTML = historyResult[4];
+
+}
+
+displayGuesses();
+
+function resetGuesses() {
+    for (i = 0; i <= 5; i++) {
+        historyGuess[i] = "";
+        historyResult[i] = "";
+    }
+}
 ///////Function for Resetting Difficulty
 
 function changeDiff() {
@@ -214,10 +243,14 @@ function checkGuess() {
 
     if (rangeCheck() === true) {
         result.innerHTML = "You put something stupid in Min/Max fields...fix it.";
+        count --;
+        guesses.innerHTML = count;
 
     } else if (numCheck() === true) {
         result.innerHTML = "You Must Choose A Number Between " + min.value + " - " + max.value + " idiot.";                                       
-      
+        count --;
+        guesses.innerHTML = count;
+
     } else if (guess === compGuessNum) {
         currentDifficulty ++;
         result.innerHTML = "Hey Hot Shot. Try Custom.";
@@ -227,6 +260,8 @@ function checkGuess() {
         quickestCheck();
         count = 0;
         compGuess();
+        resetGuesses();
+        displayGuesses();
         if (currentDifficulty < 4) {
             difficulty[currentDifficulty].click();
             result.innerHTML = "Don't get Cocky. Level up...";
@@ -238,11 +273,21 @@ function checkGuess() {
         result.innerHTML = "Too low, try harder";
         setup.innerHTML = "Your Last Guess Was";
         guessDisplay.innerHTML = guess;
+        historyGuess[count - 1] = guess;
+        historyResult[count - 1] = "Too Low";
+        displayGuesses();
+        console.log(historyGuess);
+        console.log(guess);
 
     } else {
         result.innerHTML = "Too high, try harder";
         setup.innerHTML = "Your Last Guess Was";
         guessDisplay.innerHTML = guess;
+        historyGuess[count - 1] = guess;
+        historyResult[count - 1] = "Too High";
+        displayGuesses();
+        console.log(historyGuess);
+        console.log(guess);
     }
 
     disableClear();
