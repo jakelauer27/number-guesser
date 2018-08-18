@@ -88,7 +88,6 @@ form {
 }
 
 .history {
-  height: 100%;
   width: 90%;
   margin: 35px auto;
   border: 3px solid black;
@@ -236,6 +235,10 @@ input[type="radio"] {
   width: 20%;
 }
 
+.histResult {
+  color: red;
+}
+
 /*FOOTER*/
 
 footer {
@@ -275,6 +278,11 @@ footer {
     width: 100%;
     grid-row: 2/3;
     grid-column: 2/3
+  }
+
+  .history {
+    width: 60%;
+    min-width: 340px;
   }
 
 }
