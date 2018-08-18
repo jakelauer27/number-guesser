@@ -23,7 +23,9 @@ var historyGuess = ["","","","",""];
 var historyResult = ["","","","",""];
 
 
-/////Var for Computer's Guess
+/////Var for Your/Computer's Guess
+
+var guess = ""; 
 
 var compGuessNum = 0; 
 
@@ -128,7 +130,7 @@ difficulty[4].addEventListener("click", function() {
     currentDifficulty = 4;
 })
 
-///////Function for Setting Guesses
+///////Functions For History Feature
 
 function displayGuesses() {
     document.querySelector(".histOne").innerHTML = historyGuess[0];
@@ -153,6 +155,21 @@ function resetGuesses() {
         historyResult[i] = "";
     }
 }
+
+function historyUpdate (count, message) {
+    if (count > 5) {
+        for (i = 0; i < 4; i++) {
+            historyGuess[i] = historyGuess[i + 1];
+            historyResult[i] = historyResult[i +1]
+        }
+        historyGuess[4] = guess;
+        historyResult[4] = message;
+    } else {
+        historyGuess[count - 1] = guess;
+        historyResult[count - 1] = message;
+    }
+}
+
 ///////Function for Resetting Difficulty
 
 function changeDiff() {
@@ -235,7 +252,7 @@ max.disabled = true;
 ///////Comparing user guess to computer Guess
 
 function checkGuess() {
-    var guess = Number(userGuess.value);
+    guess = Number(userGuess.value);
     count ++;
     guesses.innerHTML = count;
     console.log("Your Guess " + guess);
@@ -273,8 +290,7 @@ function checkGuess() {
         result.innerHTML = "Too low, try harder";
         setup.innerHTML = "Your Last Guess Was";
         guessDisplay.innerHTML = guess;
-        historyGuess[count - 1] = guess;
-        historyResult[count - 1] = "Too Low";
+        historyUpdate(count, "Too Low");
         displayGuesses();
         console.log(historyGuess);
         console.log(guess);
@@ -283,8 +299,7 @@ function checkGuess() {
         result.innerHTML = "Too high, try harder";
         setup.innerHTML = "Your Last Guess Was";
         guessDisplay.innerHTML = guess;
-        historyGuess[count - 1] = guess;
-        historyResult[count - 1] = "Too High";
+        historyUpdate(count, "Too High")
         displayGuesses();
         console.log(historyGuess);
         console.log(guess);
@@ -293,5 +308,3 @@ function checkGuess() {
     disableClear();
     disableReset();
 }
-
-
