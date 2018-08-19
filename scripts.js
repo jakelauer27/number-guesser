@@ -172,7 +172,7 @@ function historyUpdate (count, message) {
     if (count > 5) {
         for (i = 0; i < 4; i++) {
             historyGuess[i] = historyGuess[i + 1];
-            historyResult[i] = historyResult[i +1]
+            historyResult[i] = historyResult[i + 1]
         }
         historyGuess[4] = guess;
         historyResult[4] = message;
@@ -261,7 +261,7 @@ guessButton.disabled = true;
 min.disabled = true;
 max.disabled = true;
 
-///////Comparing user guess to computer Guess
+///////Comparing user guess to computer Guess - This is where is all comes together
 
 function checkGuess() {
     guess = Number(userGuess.value);
