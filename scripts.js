@@ -54,7 +54,7 @@ resetButton.addEventListener("click", function() {
 
 min.addEventListener("input", function() {
   compGuess();
-  console.log(compGuessNum);
+  
 })
 
 max.addEventListener("input", function() {
