@@ -284,7 +284,7 @@ function checkGuess() {
 
     } else if (guess === compGuessNum) {
         currentDifficulty ++;
-        result.innerHTML = "Hey Hot Shot. Try Custom.";
+        result.innerHTML = "Fine. You Win.";
         setup.innerHTML = "BOOM!";
         guessDisplay.innerHTML = `*${guess}*`;
         wins.innerHTML ++;
