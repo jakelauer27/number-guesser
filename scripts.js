@@ -120,7 +120,7 @@ function checkGuess() {
     console.log(compGuessNum);
 
     if (rangeCheck() === true) {
-        result.innerHTML = "You May Only Enter Numbers in the Min and Max fields";
+        result.innerHTML = "You May Only Enter Numbers in the Min and Max fields. Please reset and try again.";
 
     } else if (numCheck() === true) {
         result.innerHTML = "You Must Choose A Number Between " + min.value + " and " + max.value;                                       
