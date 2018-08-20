@@ -64,7 +64,7 @@ h2 {
 .game{
   height: 380px;
   margin: 10px auto;
-  width: 95%;
+  width: 700px;
 }
 
 .level,
@@ -88,7 +88,7 @@ form {
 }
 
 .history {
-  width: 90%;
+  width: 669px;
   margin: 35px auto;
   border: 3px solid black;
   padding: 8px;
@@ -245,7 +245,7 @@ footer {
   margin: 50px auto;
 }
 
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 690px) {
   .game {
   max-width: 100%;
   width: 92%;
