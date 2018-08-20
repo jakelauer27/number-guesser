@@ -89,8 +89,6 @@ difficulty[0].addEventListener("click", function() {
     min.value = 0;
     max.value = 25;
     changeDiff();
-    resetGuesses();
-    displayGuesses();
 })
 
 difficulty[1].addEventListener("click", function() {
@@ -98,8 +96,6 @@ difficulty[1].addEventListener("click", function() {
     min.value = 0;
     max.value = 100;
     changeDiff();
-    resetGuesses();
-    displayGuesses();
 })
 
 difficulty[2].addEventListener("click", function() {
@@ -107,8 +103,6 @@ difficulty[2].addEventListener("click", function() {
     min.value = 0;
     max.value = 500;
     changeDiff();
-    resetGuesses();
-    displayGuesses();
 })
 
 difficulty[3].addEventListener("click", function() {
@@ -116,15 +110,11 @@ difficulty[3].addEventListener("click", function() {
     min.value = 0;
     max.value = 10000;
     changeDiff();
-    resetGuesses();
-    displayGuesses();
 })
 
 difficulty[4].addEventListener("click", function() {
     currentDifficulty = 4;
     changeDiff();
-    resetGuesses();
-    displayGuesses();
 })
 
 ///////Functions For History Feature
@@ -179,7 +169,8 @@ function changeDiff() {
     disableClear();
     disableReset();
     compGuess();
-    console.log(currentDifficulty);
+    resetGuesses();
+    displayGuesses();
     if (currentDifficulty < 4) {
         min.disabled = true;
         max.disabled = true;
