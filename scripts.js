@@ -85,61 +85,46 @@ max.addEventListener("input", function() {
 //////DIFFICULTY EVENT LISTENERS
 
 difficulty[0].addEventListener("click", function() {
-    changeDiff();
+    currentDifficulty = 0;
     min.value = 0;
     max.value = 25;
-    min.disabled = true;
-    max.disabled = true;
-    compGuess();
+    changeDiff();
     resetGuesses();
     displayGuesses();
-    currentDifficulty = 0;
 })
 
 difficulty[1].addEventListener("click", function() {
-    changeDiff();
+    currentDifficulty = 1
     min.value = 0;
     max.value = 100;
-    min.disabled = true;
-    max.disabled = true;
-    compGuess();
+    changeDiff();
     resetGuesses();
     displayGuesses();
-    currentDifficulty = 1;
 })
 
 difficulty[2].addEventListener("click", function() {
-    changeDiff();
+    currentDifficulty = 2;
     min.value = 0;
     max.value = 500;
-    min.disabled = true;
-    max.disabled = true;
-    compGuess();
+    changeDiff();
     resetGuesses();
     displayGuesses();
-    currentDifficulty = 2;
 })
 
 difficulty[3].addEventListener("click", function() {
-    changeDiff();
+    currentDifficulty = 3;
     min.value = 0;
     max.value = 10000;
-    min.disabled = true;
-    max.disabled = true;
-    compGuess();
+    changeDiff();
     resetGuesses();
     displayGuesses();
-    currentDifficulty = 3;
 })
 
 difficulty[4].addEventListener("click", function() {
+    currentDifficulty = 4;
     changeDiff();
-    min.disabled = false;
-    max.disabled = false;
-    compGuess();
     resetGuesses();
     displayGuesses();
-    currentDifficulty = 4;
 })
 
 ///////Functions For History Feature
@@ -194,6 +179,14 @@ function changeDiff() {
     disableClear();
     disableReset();
     compGuess();
+    console.log(currentDifficulty);
+    if (currentDifficulty < 4) {
+        min.disabled = true;
+        max.disabled = true;
+    } else {
+        min.disabled = false;
+        max.disabled = false;
+    }
 }
 
 //////Function for resetting computer guess
