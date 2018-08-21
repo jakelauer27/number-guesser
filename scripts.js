@@ -66,20 +66,19 @@ resetButton.addEventListener("click", function() {
     result.innerHTML = "Test Your Fate";
     setup.innerHTML = "Guess The Number";
     guessDisplay.innerHTML = "#";
-    min.value = 0;
-    max.value = 100;
     wins.innerHTML = 0;
     guesses.innerHTML = 0;
     quickest.innerHTML = "--"
     count = 0;
     guessButton.disabled = true;
+    difficulty[currentDifficulty].click();
     disableClear();
     disableReset();
     compGuess();
     resetGuesses();
-    if (currentDifficulty = 4) {
-        min.disabled = false;
-        max.disabled = false;
+    if (currentDifficulty < 4) {
+        min.disabled = true;
+        max.disabled = true;
     }
 })
 
@@ -134,6 +133,7 @@ function changeDiff() {
     result.innerHTML = "Difficulty Changed";
     setup.innerHTML = "Good Luck";
     guessDisplay.innerHTML = "#";
+    guessButton.disabled = true;
     disableClear();
     disableReset();
     compGuess();
@@ -173,6 +173,7 @@ displayGuesses();
 
 function resetGuesses() {
     for (i = 0; i < 5; i++) {
+        count = 0;
         historyGuess[i] = "";
         historyResult[i] = "";
         // if (historyGuessDoc[i].classList.contains("vertTranslate") === true) {
