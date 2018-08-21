@@ -366,4 +366,10 @@ footer {
     min-width: 340px;
   }
 
+  #stopFlash {
+    position: static;
+    display: block;
+    margin: 0 auto;
+  }
+
 }
