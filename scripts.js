@@ -6,6 +6,7 @@ var clearButtton = document.getElementById("clearButton");
 var resetButton = document.querySelector("input[type=reset]");
 var min = document.getElementById("min");
 var max = document.getElementById("max");
+var stopFlash = document.querySelector("#stopFlash");
 
 var difficulty = [document.querySelector(".easy"), document.querySelector(".med"), document.querySelector(".hard"), document.querySelector(".xtreme"), document.querySelector(".custom")];
 var currentDifficulty = 1;
@@ -33,6 +34,12 @@ var count = 0;
 
 //////Button and input event listeners
 
+stopFlash.addEventListener("click", function(){
+    document.querySelector(".number").style.animationIterationCount = 0;
+    document.querySelector(".extreme").style.animationIterationCount = 0;
+    stopFlash.disabled = true;
+})
+
 userGuess.addEventListener("input", function() {
   guessButton.disabled = false;
 })
@@ -42,7 +49,7 @@ guessButton.addEventListener("click", function() {
     min.disabled = true;
     max.disabled = true;
     checkGuess();
-});
+})
 
 clearButton.addEventListener("click", function() {
     event.preventDefault();
@@ -302,3 +309,4 @@ function checkGuess() {
     disableClear();
     disableReset();
 }
+

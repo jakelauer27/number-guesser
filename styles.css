@@ -19,31 +19,6 @@ body {
   height: 100%;
 }
 
-header {
-  text-align: center;
-  background: linear-gradient(grey, black);
-  color: #E6E7E8;
-  padding-top: 5px;
-  padding-bottom: 7px;
-}
-
-.extreme,
-.number {
-  color: rgb(178, 245, 178);;
-  font-weight: 700;
-  animation-name: flash;
-  animation-duration: 0.1s;
-  animation-timing-function: linear;
-  animation-iteration-count: 70;
-  animation-direction: alternate;
-  animation-play-state: running;
-}
-
-@keyframes flash {
-   from {color: purple;}
-   to {color: rgb(178, 245, 178)}
-}
-
 h1 {
   margin: 0px;
   font-weight: 300;
@@ -59,12 +34,79 @@ h2 {
   padding: 3px;
 }
 
+/*HEADER*/
+
+header {
+  animation: 1s ease-out 0s 1 slideInFromTop;
+  text-align: center;
+  background: linear-gradient(grey, black);
+  color: #E6E7E8;
+  padding-top: 5px;
+  padding-bottom: 7px;
+  position: relative;
+}
+
+.extreme,
+.number {
+  color: rgb(178, 245, 178);;
+  font-weight: 700;
+  animation-name: flash;
+  animation-duration: 0.1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+}
+
+#stopFlash {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  font-size: 6px;
+  width: 50px;
+  height: auto;
+}
+/*KEYFRAME ANIMATIONS*/
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromRight{
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes flash {
+  from {color: purple;}
+  to {color: rgb(178, 245, 178)}
+}
+
 /*Form Styling*/
 
 .game{
   height: 380px;
   margin: 10px auto;
   width: 700px;
+  animation: 1s ease-out 0s 1 slideInFromRight;
 }
 
 .level,
@@ -95,6 +137,11 @@ form {
   background-color: rgb(59, 50, 59); 
 }
 
+.history,
+footer {
+  animation: 1s ease-out 0s 1 slideInFromBottom;
+}
+
 /*ACTION FORM*/
 
 .results {
@@ -120,6 +167,7 @@ form {
   border: 2px solid rgb(178, 245, 178);
   background: rgb(230, 230, 230);
   border-radius: 10px;
+  transition: all ease .2s;
 }
 
 ::placeholder{
@@ -139,6 +187,7 @@ input[type=reset]{
   padding-top: 5px;
   padding-bottom: 5px;
   margin-top: 45px;
+  transition: all ease .3s;
 }
 
 button { 
@@ -162,6 +211,7 @@ button:hover,
 input[type=reset]:hover {
   background: linear-gradient(black, purple);
   color: white;
+  transform: translateY(-2px);
 }
 
 button:disabled:hover,
@@ -170,7 +220,21 @@ input[type=reset]:disabled:hover {
   background: linear-gradient(grey, black);
   border: 2px solid rgb(178, 245, 178);
   color: rgb(178, 245, 178);
+  transform: translateY(0px);
 }
+
+#userGuess:hover,
+.range:hover {
+  border-color: purple;
+  transform: translateY(-1px);
+}
+
+#userGuess:hover:disabled,
+.range:hover:disabled {
+  border-color: rgb(178, 245, 178);
+  transform: translateY(0px);
+}
+
 
 /*STATS FORM*/
 
@@ -199,6 +263,7 @@ fieldset {
   border: 2px solid rgb(178, 245, 178);
   background: rgb(230, 230, 230);
   border-radius: 10px;
+  transition: all ease .2s;
 }
 
 .range:disabled { 
@@ -237,6 +302,16 @@ input[type="radio"] {
 
 .histResult {
   color: red;
+}
+
+.histItem.vertTranslate, 
+.histResult.vertTranslate {
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  margin-bottom: 60px;
 }
 
 /*FOOTER*/
