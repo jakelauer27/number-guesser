@@ -20,6 +20,8 @@ var wins = document.querySelector(".wins");
 var quickest = document.querySelector(".quickest");
 var guesses = document.querySelector(".guesses");
 
+var historyGuessDoc = document.querySelectorAll(".lastGuess > div");
+var historyResultDoc = document.querySelectorAll(".lastResult > div");
 var historyGuess = ["","","","",""];
 var historyResult = ["","","","",""];
 
@@ -74,7 +76,6 @@ resetButton.addEventListener("click", function() {
     disableReset();
     compGuess();
     resetGuesses();
-    displayGuesses();
     if (currentDifficulty = 4) {
         min.disabled = false;
         max.disabled = false;
@@ -127,18 +128,21 @@ difficulty[4].addEventListener("click", function() {
 ///////Functions For History Feature
 
 function displayGuesses() {
-    document.querySelector(".histOne").innerHTML = historyGuess[0];
-    document.querySelector(".histTwo").innerHTML = historyGuess[1];
-    document.querySelector(".histThree").innerHTML = historyGuess[2];
-    document.querySelector(".histFour").innerHTML = historyGuess[3];
-    document.querySelector(".histFive").innerHTML = historyGuess[4];
-
-    document.querySelector(".resultOne").innerHTML = historyResult[0];
-    document.querySelector(".resultTwo").innerHTML = historyResult[1];
-    document.querySelector(".resultThree").innerHTML = historyResult[2];
-    document.querySelector(".resultFour").innerHTML = historyResult[3];
-    document.querySelector(".resultFive").innerHTML = historyResult[4];
-
+    if (count <= 5) {
+        for (i = 0; i <= count - 1; i++) {
+            historyGuessDoc[i].innerHTML = historyGuess[i];
+            historyResultDoc[i].innerHTML = historyResult[i];
+            if (count > 0) {
+            historyResultDoc[i].classList.add("vertTranslate");
+            historyGuessDoc[i].classList.add("vertTranslate");
+            }
+        }
+    } else {
+        for (i = 0; i < 5; i++) {
+            historyGuessDoc[i].innerHTML = historyGuess[i];
+            historyResultDoc[i].innerHTML = historyResult[i];
+        }
+    }
 }
 
 displayGuesses();
@@ -148,6 +152,7 @@ function resetGuesses() {
         historyGuess[i] = "";
         historyResult[i] = "";
     }
+    displayGuesses();
 }
 
 function historyUpdate (count, message) {
@@ -283,7 +288,6 @@ function checkGuess() {
         count = 0;
         compGuess();
         resetGuesses();
-        displayGuesses();
         if (currentDifficulty < 4) {
             difficulty[currentDifficulty].click();
             result.innerHTML = "Don't get Cocky. Level up...";
