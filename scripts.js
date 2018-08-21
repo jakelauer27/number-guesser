@@ -46,7 +46,7 @@ stopFlash.addEventListener("click", function(){
     } else {
         stopFlash.innerHTML = "My Eyes Are Burning";
     }
-    
+
 })
 
 userGuess.addEventListener("input", function() {
