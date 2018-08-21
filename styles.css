@@ -321,7 +321,9 @@ input[type="radio"] {
 /*FOOTER*/
 
 footer {
+  position: relative;
   margin: 50px auto;
+  width: 90%;
 }
 
 @media screen and (max-width: 690px) {

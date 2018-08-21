@@ -71,6 +71,7 @@ resetButton.addEventListener("click", function() {
     wins.innerHTML = 0;
     guesses.innerHTML = 0;
     quickest.innerHTML = "--"
+    count = 0;
     guessButton.disabled = true;
     disableClear();
     disableReset();
@@ -125,6 +126,29 @@ difficulty[4].addEventListener("click", function() {
     changeDiff();
 })
 
+
+///////Function for Resetting Difficulty
+
+function changeDiff() {
+    userGuess.value = "";
+    result.innerHTML = "Difficulty Changed";
+    setup.innerHTML = "Good Luck";
+    guessDisplay.innerHTML = "#";
+    disableClear();
+    disableReset();
+    compGuess();
+    resetGuesses();
+    count = 0;
+    guesses.innerHTML = count;
+    if (currentDifficulty < 4) {
+        min.disabled = true;
+        max.disabled = true;
+    } else {
+        min.disabled = false;
+        max.disabled = false;
+    }
+}
+
 ///////Functions For History Feature
 
 function displayGuesses() {
@@ -148,9 +172,13 @@ function displayGuesses() {
 displayGuesses();
 
 function resetGuesses() {
-    for (i = 0; i <= 5; i++) {
+    for (i = 0; i < 5; i++) {
         historyGuess[i] = "";
         historyResult[i] = "";
+        // if (historyGuessDoc[i].classList.contains("vertTranslate") === true) {
+        historyResultDoc[i].classList.remove("vertTranslate");
+        historyGuessDoc[i].classList.remove("vertTranslate");
+        // }
     }
     displayGuesses();
 }
@@ -166,29 +194,6 @@ function historyUpdate (count, message) {
     } else {
         historyGuess[count - 1] = guess;
         historyResult[count - 1] = message;
-    }
-}
-
-///////Function for Resetting Difficulty
-
-function changeDiff() {
-    userGuess.value = "";
-    result.innerHTML = "Difficulty Changed";
-    setup.innerHTML = "Good Luck";
-    guessDisplay.innerHTML = "#";
-    count = "0";
-    guesses.innerHTML = count;
-    disableClear();
-    disableReset();
-    compGuess();
-    resetGuesses();
-    displayGuesses();
-    if (currentDifficulty < 4) {
-        min.disabled = true;
-        max.disabled = true;
-    } else {
-        min.disabled = false;
-        max.disabled = false;
     }
 }
 
