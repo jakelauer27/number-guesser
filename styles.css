@@ -58,6 +58,11 @@ header {
   animation-play-state: running;
 }
 
+.removeAnimation {
+  animation-iteration-count: 0;
+  border-color: purple;
+}
+
 #stopFlash {
   position: absolute;
   top: 10px;

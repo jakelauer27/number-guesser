@@ -39,16 +39,12 @@ var count = 0;
 stopFlash.addEventListener("click", function(){
     var numberHeader = document.querySelector(".number");
     var extremeHeader = document.querySelector(".extreme");
-    if (numberHeader.style.animationIterationCount === "infinite") {
-        numberHeader.style.animationIterationCount = 0;
-        extremeHeader.style.animationIterationCount = 0;
+    numberHeader.classList.toggle('removeAnimation')
+    extremeHeader.classList.toggle('removeAnimation')
+    if (numberHeader.classList.contains('removeAnimation') === true) {
         stopFlash.innerHTML = "I want my eyes to burn";
-        stopFlash.style.borderColor = "purple";
     } else {
-        numberHeader.style.animationIterationCount = "infinite";
-        extremeHeader.style.animationIterationCount = "infinite";
         stopFlash.innerHTML = "My Eyes Are Burning";
-        stopFlash.style.borderColor = "rgb(178, 245, 178)";
     }
     
 })
