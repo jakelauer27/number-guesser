@@ -34,6 +34,12 @@ var compGuessNum = 0;
 
 var count = 0;
 
+//////slideIn Animation Remove
+
+setTimeout(function(){
+    guessDisplay.classList.remove("slideIn");
+}, 3000)
+
 //////Button and input event listeners
 
 stopFlash.addEventListener("click", function(){
@@ -65,14 +71,12 @@ clearButton.addEventListener("click", function() {
     guessButton.disabled = true;
     userGuess.value = "";
     disableClear();
+    userGuess.focus();
 })
 
 resetButton.addEventListener("click", function() {
     event.preventDefault();
     userGuess.value = "";
-    result.innerHTML = "Test Your Fate";
-    setup.innerHTML = "Guess The Number";
-    guessDisplay.innerHTML = "#";
     wins.innerHTML = 0;
     guesses.innerHTML = 0;
     quickest.innerHTML = "--"
@@ -83,6 +87,9 @@ resetButton.addEventListener("click", function() {
     disableReset();
     compGuess();
     resetGuesses();
+    result.innerHTML = "Test Your Fate";
+    setup.innerHTML = "Guess The Number";
+    guessDisplay.innerHTML = "--";
     if (currentDifficulty < 4) {
         min.disabled = true;
         max.disabled = true;
@@ -139,7 +146,7 @@ function changeDiff() {
     userGuess.value = "";
     result.innerHTML = "Difficulty Changed";
     setup.innerHTML = "Good Luck";
-    guessDisplay.innerHTML = "#";
+    guessDisplay.innerHTML = "--";
     guessButton.disabled = true;
     disableClear();
     disableReset();
@@ -220,6 +227,11 @@ function quickestCheck(){
     }else if (count < current){
         quickest.innerHTML = count;
         setup.innerHTML = "NEW RECORD";
+        quickest.classList.add("winning");
+        setTimeout(function(){
+            quickest.classList.remove("winning");
+        }, 2000);
+        wins.innerHTML ++;
     }
 }
 
@@ -296,6 +308,10 @@ function checkGuess() {
         result.innerHTML = "Fine. You Win.";
         setup.innerHTML = "BOOM!";
         guessDisplay.innerHTML = `*${guess}*`;
+        guessDisplay.classList.add("winning");
+        setTimeout(function(){
+            guessDisplay.classList.remove("winning");
+        }, 2000);
         wins.innerHTML ++;
         quickestCheck();
         count = 0;

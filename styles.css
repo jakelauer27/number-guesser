@@ -88,6 +88,17 @@ header {
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft{
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
@@ -103,6 +114,25 @@ header {
 @keyframes flash {
   from {color: purple;}
   to {color: rgb(178, 245, 178)}
+}
+
+@keyframes winning {
+  0%{
+  bottom: 4px;
+  color: purple;
+  }
+  33%{
+  bottom: 0px;
+  color: rgb(178, 245, 178);
+  }
+  66%{
+    bottom: -4px;
+    color: purple;
+  }
+  100%{
+  bottom: 0px;
+  color: rgb(178, 245, 178);
+  }
 }
 
 /*Form Styling*/
@@ -123,6 +153,7 @@ header {
 .action {
   display: inline-block;
   width: 52%;
+  overflow: hidden;
 }
 
 form {
@@ -157,6 +188,24 @@ footer {
 #guessDisplay{
   color: rgb(178, 245, 178);;
   font-size: 60px;
+  opacity: 1;
+}
+
+#setup,
+#result {
+  opacity: 0;
+  animation: slideInFromLeft 1s ease-out .7s 1;
+  animation-fill-mode: forwards;
+}
+
+.winning {
+  position: relative;
+  animation: winning .4s linear 0s 6;
+}
+
+.slideIn {
+animation: slideInFromRight 1s ease-out .7s 1;
+animation-fill-mode: both;
 }
 
 /*Button and Input Styling*/
