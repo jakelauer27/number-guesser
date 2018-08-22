@@ -57,6 +57,7 @@ stopFlash.addEventListener("click", function(){
 
 userGuess.addEventListener("input", function() {
   guessButton.disabled = false;
+  clearButtton.disabled = false;
 })
 
 guessButton.addEventListener("click", function() {
@@ -183,8 +184,6 @@ function displayGuesses() {
     }
 }
 
-displayGuesses();
-
 function resetGuesses() {
     for (i = 0; i < 5; i++) {
         count = 0;
@@ -227,10 +226,6 @@ function quickestCheck(){
     }else if (count < current){
         quickest.innerHTML = count;
         setup.innerHTML = "NEW RECORD";
-        quickest.classList.add("winning");
-        setTimeout(function(){
-            quickest.classList.remove("winning");
-        }, 2000);
         wins.innerHTML ++;
     }
 }
@@ -323,6 +318,7 @@ function checkGuess() {
             guessDisplay.innerHTML = `*${guess}*`;
             setup.innerHTML = "BOOM!";
         }
+
 
     } else if (guess < compGuessNum) {
         result.innerHTML = "Too low, try harder";
