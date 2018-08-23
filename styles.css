@@ -1,9 +1,8 @@
-
 /*General Styling*/
 
 *{
-  font-family: 'Open Sans', sans-serif;
   color: white;
+  font-family: 'Open Sans', sans-serif;
 }
 
 *:focus {
@@ -11,26 +10,26 @@
 }
 
 body {
-  margin: 0;
-  text-align: center;
   background: linear-gradient(black, purple);
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 100%;
+  margin: 0;
+  text-align: center;
 }
 
 h1 {
-  margin: 0px;
   font-weight: 300;
+  margin: 0px;
 }
 
 h2 {
-  margin: 0 auto 10px auto;
   color: white;
-  font-weight: 300;
   background: linear-gradient(grey, black);
   border: 3px solid rgb(110, 24, 116);
   border-radius: 8px;
+  font-weight: 300;
+  margin: 0 auto 10px auto;
   padding: 3px;
 }
 
@@ -38,24 +37,24 @@ h2 {
 
 header {
   animation: 1s ease-out 0s 1 slideInFromTop;
-  text-align: center;
   background: linear-gradient(grey, black);
   color: #E6E7E8;
   padding-top: 5px;
   padding-bottom: 7px;
   position: relative;
+  text-align: center;
 }
 
 .extreme,
 .number {
-  color: rgb(178, 245, 178);;
-  font-weight: 700;
   animation-name: flash;
   animation-duration: 0.1s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-play-state: running;
+  color: rgb(178, 245, 178);;
+  font-weight: 700;
 }
 
 .removeAnimation {
@@ -64,13 +63,14 @@ header {
 }
 
 #stopFlash {
-  position: absolute;
-  top: 10px;
-  right: 5px;
-  font-size: 6px;
-  width: 50px;
   height: auto;
+  top: 10px;
+  font-size: 6px;
+  position: absolute;
+  right: 5px;
+  width: 50px;
 }
+
 /*KEYFRAME ANIMATIONS*/
 
 @keyframes slideInFromTop {
@@ -82,7 +82,7 @@ header {
   }
 }
 
-@keyframes slideInFromRight{
+@keyframes slideInFromRight {
   0% {
     transform: translateX(-100%);
   }
@@ -92,7 +92,7 @@ header {
   }
 }
 
-@keyframes slideInFromLeft{
+@keyframes slideInFromLeft {
   0% {
     transform: translateX(100%);
   }
@@ -117,27 +117,27 @@ header {
 }
 
 @keyframes winning {
-  0%{
-  bottom: 4px;
-  color: purple;
+  0% {
+    bottom: 4px;
+    color: purple;
   }
-  33%{
-  bottom: 0px;
-  color: rgb(178, 245, 178);
+  33% {
+    bottom: 0px;
+    color: rgb(178, 245, 178);
   }
-  66%{
+  66% {
     bottom: -4px;
     color: purple;
   }
-  100%{
-  bottom: 0px;
-  color: rgb(178, 245, 178);
+  100% {
+    bottom: 0px;
+    color: rgb(178, 245, 178);
   }
 }
 
 /*Form Styling*/
 
-.game{
+.game 
   height: 380px;
   margin: 10px auto;
   width: 700px;
@@ -157,20 +157,20 @@ header {
 }
 
 form {
-  margin: 10px auto;
+  background-color: rgb(59, 50, 59);
   border: 3px solid black;
   height: 100%;
-  vertical-align: top;
+  margin: 10px auto;
   padding: 8px;
-  background-color: rgb(59, 50, 59);
+  vertical-align: top;
 }
 
 .history {
-  width: 669px;
+  background-color: rgb(59, 50, 59);
+  border: 3px solid black; 
   margin: 35px auto;
-  border: 3px solid black;
   padding: 8px;
-  background-color: rgb(59, 50, 59); 
+  width: 669px;
 }
 
 .history,
@@ -185,7 +185,7 @@ footer {
   color: #404041;
 }
 
-#guessDisplay{
+#guessDisplay {
   color: rgb(178, 245, 178);;
   font-size: 60px;
   opacity: 1;
@@ -193,14 +193,14 @@ footer {
 
 #setup,
 #result {
-  opacity: 0;
   animation: slideInFromLeft 1s ease-out .7s 1;
   animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 .winning {
-  position: relative;
   animation: winning .4s linear 0s 6;
+  position: relative;
 }
 
 .slideIn {
@@ -210,50 +210,50 @@ animation-fill-mode: both;
 
 /*Button and Input Styling*/
 
-#userGuess{
-  display: block;
-  text-align: center;
-  font-weight: 700;
+#userGuess {
+  background: rgb(230, 230, 230);
+  border: 2px solid rgb(178, 245, 178);
+  border-radius: 10px;
   color: rgb(59, 50, 59);
-  width: 90%;
+  display: block;
+  font-weight: 700;
   margin: 0 auto;
   padding: 3px 3px;
-  border: 2px solid rgb(178, 245, 178);
-  background: rgb(230, 230, 230);
-  border-radius: 10px;
+  text-align: center;
   transition: all ease .2s;
+  width: 90%;
 }
 
-::placeholder{
+::placeholder {
    color:rgb(141, 150, 155);
-   text-align: center;
-   opacity: 1;
    font-weight: 300;
+   opacity: 1;
+   text-align: center;
 }
 
 button, 
-input[type=reset]{
-  color: rgb(178, 245, 178);
+input[type=reset] {
   background: linear-gradient(grey, black);
   border: 2px solid rgb(178, 245, 178);
   border-radius: 10px;
+  color: rgb(178, 245, 178);
   font-weight: 700;
+  margin-top: 45px;
   padding-top: 5px;
   padding-bottom: 5px;
-  margin-top: 45px;
   transition: all ease .3s;
 }
 
 button { 
-  width: 43.5%;
   margin-top: 1px;
   margin-right: 2%;
   margin-left: 2%;
+  width: 43.5%;
 }
 
 input[type=reset] {
-  width: 94%;
   margin: 35px auto;
+  width: 94%;
 }
 
 button:disabled,
@@ -263,17 +263,17 @@ input[type=reset]:disabled {
 
 button:hover,
 input[type=reset]:hover {
-  background: linear-gradient(black, purple);
   color: white;
+  background: linear-gradient(black, purple);
   transform: translateY(-2px);
 }
 
 button:disabled:hover,
 input[type=reset]:disabled:hover {
-  opacity: .3;
   background: linear-gradient(grey, black);
   border: 2px solid rgb(178, 245, 178);
   color: rgb(178, 245, 178);
+  opacity: .3;
   transform: translateY(0px);
 }
 
@@ -289,7 +289,6 @@ input[type=reset]:disabled:hover {
   transform: translateY(0px);
 }
 
-
 /*STATS FORM*/
 
 .stats * {
@@ -298,26 +297,25 @@ input[type=reset]:disabled:hover {
 
 /*LEVEL FORM*/
 
-
 fieldset {
+  border: 1px solid white;
+  border-radius: 12px;
   width: 89.5%;
   padding: 7px 5px;
   margin: 0 auto;
-  border: 1px solid white;
-  border-radius: 12px;
 }
 
 .range {
-  width: 41%;
-  text-align: center;
-  font-weight: 300;
-  font-weight: 700;
-  color: rgb(59, 50, 59); 
-  padding: 3px 3px;
   border: 2px solid rgb(178, 245, 178);
   background: rgb(230, 230, 230);
   border-radius: 10px;
+  color: rgb(59, 50, 59); 
+  font-weight: 300;
+  font-weight: 700;
+  padding: 3px 3px;
   transition: all ease .2s;
+  text-align: center;
+  width: 41%;
 }
 
 .range:disabled { 
@@ -325,8 +323,8 @@ fieldset {
 }
 
 .to {
-  display: block;
   color: #D0D2D3;
+  display: block;
   font-weight: 300;
 }
 
@@ -367,36 +365,35 @@ input[type="radio"] {
 
 .vertTranslate, 
 .vertTranslate {
+  transition: .5s;
+  opacity: 1;
+  height: 25px;
   -webkit-transition: .5s;
   -moz-transition: .5s;
   -ms-transition: .5s;
   -o-transition: .5s;
-  transition: .5s;
-  opacity: 1;
-  height: 25px;
 }
-
 
 /*FOOTER*/
 
 footer {
-  position: relative;
   margin: 50px auto;
+  position: relative;
   width: 90%;
 }
 
 @media screen and (max-width: 690px) {
   .game {
-  max-width: 100%;
-  width: 92%;
-  display: grid;
-  margin: 20px 4% 0 2%;
-  height: auto;
   column-gap: 2em;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  height: auto;
+  display: grid;
+  max-width: 100%;
+  margin: 20px 4% 0 2%;
   row-gap: 30px;
-	justify-content: center;
-	grid-template-columns: auto auto;
-	grid-template-rows: auto auto;
+  justify-content: center;
+  width: 92%;
   }
 
   .action {
