@@ -15,11 +15,11 @@ body {
 }
 
 header {
-  text-align: center;
   background: #404041;
   color: #E6E7E8;
   padding-top: 5px;
   padding-bottom: 7px;
+  text-align: center;
 }
 
 .number {
@@ -28,8 +28,8 @@ header {
 }
 
 h1 {
-  margin: 0px;
   font-weight: 300;
+  margin: 0px;
 }
 
 /*Form Styling*/
@@ -40,10 +40,10 @@ form {
 }
 
 fieldset {
-  width: 89.5%;
-  padding: 7px 5px;
-  margin: 15px auto 0 auto;
   border: 1px solid #D0D2D3;
+  margin: 15px auto 0 auto;
+  padding: 7px 5px;
+  width: 89.5%;
 }
 
 legend {
@@ -52,69 +52,65 @@ legend {
 }
 
 .range {
-  width: 41%;
-  text-align: center;
   font-weight: 300;
+  text-align: center;
+  width: 41%;
 }
 
 .to {
-  display: inline-block;
   color: #D0D2D3;
+  display: inline-block;
   font-weight: 300;
 }
 
-@media screen and (max-width: 440px) {
-  
+@media screen and (max-width: 440px) {  
   .to {
     display: block;
   }
-  
-
 }
 
 .results {
-  margin-top: 30px;
   color: #404041;
+  margin-top: 30px;
 }
 
-#guessDisplay{
+#guessDisplay {
   color: #EB008B;
   font-size: 60px;
 }
 
 /*Button and Input Styling*/
 
-#userGuess{
+#userGuess {
   display: block;
-  width: 90%;
   margin: 0 auto;
   padding: 3px 3px;
+  width: 90%;
 }
 
-::placeholder{
+::placeholder {
    color:#D0D2D3;
-   opacity: 1;
    font-weight: 300;
+   opacity: 1;
 }
 
 button, 
-input[type=reset]{
-  color: #FFFFFF;
+input[type=reset] {
   background: #929497;
+  color: #FFFFFF;
   border: 0;
   border-radius: 15px;
   font-weight: 300;
+  margin-top: 45px;
   padding-top: 3px;
   padding-bottom: 3px;
-  margin-top: 45px;
-  font-weight: 300;
 }
 
 button{
-  width: 43.5%;
   margin-top: 1px;
   margin-right: 2%;
   margin-left: 2%;
+  width: 43.5%;
 }
 
 input[type=reset]{
